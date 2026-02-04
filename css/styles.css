@@ -77,6 +77,11 @@ body {
 
 .header {
   border-bottom: 1px solid var(--cornflower);
+  box-shadow:
+    0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 2px 1px 0 rgba(46, 47, 66, 0.08);
+  background: var(--white);
 }
 
 .header-logo {
@@ -96,6 +101,7 @@ body {
 
 .header-logo-web {
   color: #4d5ae5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contacts {
@@ -128,6 +134,23 @@ body {
   color: #2e2f42;
   padding-top: 24px;
   padding-bottom: 23px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-menu-link.current {
+  position: relative;
+  color: #404bbf;
+}
+
+.header-menu-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
 }
 
 .header-contacts-link {
@@ -139,6 +162,7 @@ body {
   color: #434455;
   padding-top: 24px;
   padding-bottom: 23px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-logo:hover,
@@ -159,6 +183,14 @@ body {
 
 .main-title {
   background-color: #2e2f42;
+  background-image:
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url(../images/people-office1.jpg);
+  max-width: 1440px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .main-title-wrapper {
@@ -193,6 +225,7 @@ body {
   padding: 16px 32px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background: var(--iris);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-title-button:hover,
@@ -218,6 +251,22 @@ body {
 
 .solutions-item {
   width: calc((100% - 72px) / 4);
+}
+
+.solutions-item-icon-wrapper {
+  background-color: var(--cloud);
+  padding: 23px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  border: 1px solid var(--light-slate);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.solutions-item-icon {
+  background-color: var(--cloud);
 }
 
 .solutions-item-title {
@@ -298,7 +347,7 @@ body {
   letter-spacing: 0.02em;
   text-align: center;
   color: #434455;
-  margin: 0 auto;
+  margin: 0 auto 8px;
 }
 
 /*----------------- POTRFOLIO ----------------------- */
@@ -320,7 +369,28 @@ body {
 }
 
 .portfolio-item {
+  /* box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08); */
+  background: var(--white);
   width: calc((100% - 48px) / 3);
+}
+
+.portfolio-item:hover {
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-item:hover .portfolio-item-text-open {
+  transform: translateY(0);
+}
+
+.portfolio-img-wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .portfolio-img {
@@ -354,6 +424,21 @@ body {
   color: #434455;
 }
 
+.portfolio-item-text-open {
+  position: absolute;
+  top: 0;
+  padding: 40px 32px;
+  height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cloud);
+  background: var(--iris);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /*----------------- FOOTER ----------------------- */
 
 .footer {
@@ -381,6 +466,7 @@ body {
 
 .footer-logo-web {
   color: #4d5ae5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-logo:hover,
@@ -399,4 +485,65 @@ body {
   letter-spacing: 0.02em;
   color: #f4f4fd;
   max-width: 264px;
+}
+
+.footer-wrapper-social-media {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 208px;
+}
+
+.footer-social-media {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+
+.social-link {
+  display: block;
+}
+
+.div-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--iris);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.div-icon:hover {
+  background-color: #31d0aa;
+}
+
+.div-icon.team:hover {
+  background-color: #404bbf;
+}
+
+.icon-image {
+  fill: transparent;
+  fill: var(--cloud);
+}
+
+.social-list {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-list.team {
+  gap: 24px;
+  background-color: #fff;
+}
+
+.footer .container {
+  display: flex;
+  gap: 120px;
 }
