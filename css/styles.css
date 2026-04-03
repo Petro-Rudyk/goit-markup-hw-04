@@ -535,7 +535,7 @@ body {
 .social-list {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
